@@ -46,7 +46,7 @@ classdef SatiMatrix < SupSati
         end
         
         %Count all score in saati matrix-----------------------------------
-        function CountSaati(obj)
+        function out=CountSaati(obj)
             for i=1:obj.ParamCount
                 num=obj.WTable{i,1:end-1};
                 b=num(1);
@@ -70,6 +70,7 @@ classdef SatiMatrix < SupSati
             obj.ScoreMat=score;
             obj.Score=sum(score,2);
             obj.OutTable=[obj.InTable, table(obj.Score,'VariableNames',"Score")];
+            out=obj.OutTable;
         end
         
         %Count a single score----------------------------------------------
